@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+}
+
+@media print {
+  @page {
+    margin: 1.5cm;
+    size: A4 portrait;
+  }
+  
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: white !important;
+    color: #111827 !important; /* text-gray-900 */
+  }
+
+  /* Ensure background colors and borders print correctly */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Prevent page breaks inside cards and rows */
+  .print-break-inside-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Hide scrollbars and reset overflows for printing */
+  .overflow-x-auto, .overflow-y-auto, .overflow-hidden {
+    overflow: visible !important;
+  }
+
+  /* Table styling for print */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+  
+  th, td {
+    border: 1px solid #e5e7eb !important; /* border-gray-200 */
+    padding: 0.5rem !important;
+  }
+
+  th {
+    background-color: #f9fafb !important; /* bg-gray-50 */
+    color: #374151 !important; /* text-gray-700 */
+  }
+
+  /* Form elements styling for print */
+  input, select, textarea {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    resize: none !important;
+    color: #111827 !important;
+  }
+
+  /* Hide placeholder text when printing */
+  input::placeholder, textarea::placeholder {
+    color: transparent !important;
+  }
+
+  /* Remove shadows and borders from containers to save ink and look cleaner */
+  .shadow-sm, .shadow-md, .shadow-lg {
+    box-shadow: none !important;
+  }
+
+  /* Add a subtle border to cards instead of shadows */
+  .bg-white.rounded-xl {
+    border: 1px solid #e5e7eb !important;
+  }
+}
